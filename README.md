@@ -1,32 +1,22 @@
 # Install unsuppported miners in smOS
-I am not affilliated with the Simpleminer team in any way.  Just a guy that wants access to the latest miners in smos.
+I am not affilliated with the Simpleminer team in any way.  Just a guy that wants access to the latest miners in smOS.  
 There is no automatic way to undo what this script does, it can be undone easily with a few linux 
 commands.
 
-I have started [The Unofficial Mining Distro Discord](https://discord.gg/qJJysxR)
+I have started [The Voskcoin Discord](https://discord.voskcoin.io)
 
-In the latest version of smOS, miners do not download until you try to use them, so you must first 
-configure a rig group and attempt to mine with the miner that you would like to replace in order 
-for it to download to the miners_org directory.
+Feel free to create issues here or contact me through the Voskcoin Discord.
 
-The script will list the miners currently install in 
-smOS /root/miners_org and ask which you would 
-like to replace. It will then check my GitHub repository for new miners and ask which you would like 
-to add to smOS. It will then make a backup of the existing miner, download the new miner and create a 
-symlink in the selected directory.  Try to replace with similar, if you're adding a variant of 
-sgminer, replace sgminer, same for ccminer etc.  Do not try to replace Claymore miners.
-
-Once this is done, you can use smOS gui to make a new rig group for the miner that you replaced but remember it is not the miner that smOS thinks it is, it is the one that you replaced it with.
-
-I'll be making further enhancements such as reverting to the default miners.
-
-Feel free to create issues here, comment on https://steemit.com/crypto/@greerso/one-line-script-to-add-unsupported-miners-to-smos or contact me through the Voskcoin Discord or sub-Reddit.
-
-Execute the following command as root from your smOS CLI.
+Execute the following command from your smOS CLI.
 
 ```
-sudo bash -c "$(curl https://raw.githubusercontent.com/greerso/smOS-unsupported-miners/master/install.sh)"
+sudo bash -c "$(curl https://raw.githubusercontent.com/greerso/smOS-unsupported-miners/master/install.sh)" - [smOSMiner] [URLtoNewMiner.tar.gz]
 ```
+
+For example to replace ccminer-tpruvot-v2.1 with t-rex-0.7.4-linux-cuda9.1 the command is:
+```sudo bash -c "$(curl https://raw.githubusercontent.com/greerso/smOS-unsupported-miners/master/install.sh)" - ccminer-tpruvot-v2.1 https://github.com/trexminer/T-Rex/releases/download/0.7.4/t-rex-0.7.4-linux-cuda9.1.tar.gz```
+
+The smOS miner name must match what is listed on simplemining.net rig groups exactly and include the version number.  Once this script has replaced the miner, you can use smOS gui to make a new rig group for the miner that you replaced but remember it is not the miner that smOS thinks it is, it is the one that you replaced it with.
 
 *It is not recomended to run a script this way unless you trust the source.  Please take the time to read the script and do not execute it unless you understand exactly what it is doing.
 

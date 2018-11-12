@@ -24,7 +24,7 @@ fi
 # Location of smOS miners
 smOSMiner=$1
 newMinerURL=$2
-newMiner=basename -s .tar.gz ${newMinerURL}
+newMiner=$(basename -s .tar.gz ${newMinerURL})
 smOSMinerRoot="/root/miner_org/"
 smOSDownloadURL="http://download.simplemining.net/miners/"
 smOSMiners=($(awk -F'"' 'NR!=1 && !/md5/ {print $2}'<<< $(curl -sSL ${smOSDownloadURL})))
@@ -35,7 +35,7 @@ smOSMiners=($(awk -F'"' 'NR!=1 && !/md5/ {print $2}'<<< $(curl -sSL ${smOSDownlo
 # =======================================================================================
 smOSMinerDIR=${smOSMinerRoot}${smOSMiner}
 if [ ! -d "${smOSMinerDIR}" ];
-	then curl -fsL ${smOSDownloadURL}${smOSMiner} | tar xvz -C ${smOSMinerRoot};
+	then curl -fsL ${smOSDownloadURL}${smOSMiner}.tar.gz | tar xvz -C ${smOSMinerRoot};
 fi
 smOSMinerBin="$(find ${smOSMinerDIR}/ -maxdepth 1 -type f -size +512k -executable -printf "%f\n" -quit)"
 # ---------------------------------------------------------------------------------------
@@ -49,6 +49,7 @@ rm -rf ${smOSMinerDIR}
 # =======================================================================================
 # Download new miner into smOS miner location
 # =======================================================================================
+mkdir ${smOSMinerDIR}
 curl -fsL ${newMinerURL} | tar xvz -C ${smOSMinerDIR} --strip-components 1
 newMinerBin="$(find ${smOSMinerDIR}/ -maxdepth 1 -type f -size +512k -executable -printf "%f\n" -quit)"
 # ---------------------------------------------------------------------------------------
@@ -56,7 +57,7 @@ newMinerBin="$(find ${smOSMinerDIR}/ -maxdepth 1 -type f -size +512k -executable
 # =======================================================================================
 # Switch out miner and create masquerade symlink
 # =======================================================================================
-ln -s ${smOSMinerDIR}/${newMiner} ${smOSMinerDIR}/${smOSMinerBin}
+ln -s ${smOSMinerDIR}/${newMinerBin} ${smOSMinerDIR}/${smOSMinerBin}
 chmod +x ${smOSMinerDIR}/${newMinerBin}
 chown -R miner:miner ${smOSMinerDIR}
 # ---------------------------------------------------------------------------------------

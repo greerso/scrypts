@@ -3,8 +3,6 @@ I am not affilliated with the Simpleminer team in any way.  Just a guy that want
 There is no automatic way to undo what this script does, it can be undone easily with a few linux 
 commands.
 
-I have started [The Unofficial Mining Distro Discord](https://discord.gg/qJJysxR)
-
 In the latest version of smOS, miners do not download until you try to use them, so you must first 
 configure a rig group and attempt to mine with the miner that you would like to replace in order 
 for it to download to the miners_org directory.

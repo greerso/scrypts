@@ -57,7 +57,7 @@ newMinerBin="$(find ${smOSMinerDIR}/ -maxdepth 1 -type f -size +512k -executable
 # =======================================================================================
 # Switch out miner and create masquerade symlink
 # =======================================================================================
-ln -s ${smOSMinerDIR}/${newMinerBin} ${smOSMinerDIR}/${smOSMinerBin}
+ln -s ${smOSMinerDIR}/${smOSMinerBin} ${smOSMinerDIR}/${newMinerBin}
 chmod +x ${smOSMinerDIR}/${newMinerBin}
 chown -R miner:miner ${smOSMinerDIR}
 # ---------------------------------------------------------------------------------------

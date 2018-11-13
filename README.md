@@ -13,8 +13,10 @@ Execute the following command from your smOS CLI.
 sudo bash -c "$(curl https://raw.githubusercontent.com/greerso/smOS-unsupported-miners/master/install.sh)" - [smOSMiner] [URLtoNewMiner.tar.gz]
 ```
 
-For example to replace ccminer-tpruvot-v2.1 with t-rex-0.7.4-linux-cuda9.1 the command is:
-```sudo bash -c "$(curl https://raw.githubusercontent.com/greerso/smOS-unsupported-miners/master/install.sh)" - ccminer-tpruvot-v2.1 https://github.com/trexminer/T-Rex/releases/download/0.7.4/t-rex-0.7.4-linux-cuda9.1.tar.gz```
+For example to replace ccminer-tpruvot-v2.1 with t-rex-0.7.4-linux-cuda9.1 the command is:  
+```
+sudo bash -c "$(curl https://raw.githubusercontent.com/greerso/smOS-unsupported-miners/master/install.sh)" - ccminer-tpruvot-v2.1 https://github.com/trexminer/T-Rex/releases/download/0.7.4/t-rex-0.7.4-linux-cuda9.1.tar.gz
+```
 
 The smOS miner name must match what is listed on simplemining.net rig groups exactly and include the version number.  Once this script has replaced the miner, you can use smOS gui to make a new rig group for the miner that you replaced but remember it is not the miner that smOS thinks it is, it is the one that you replaced it with.
 

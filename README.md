@@ -1,13 +1,14 @@
-# Install unsuppported miners in smOS
+# Install unsuppported miners in smOS. 
+
 I am not affilliated with the Simpleminer team in any way.  Just a guy that wants access to the latest miners in smOS.  
 There is no automatic way to undo what this script does, it can be undone easily with a few linux 
 commands.
 
-I have started [The Voskcoin Discord](https://discord.voskcoin.io)
+I can be found on [The Voskcoin Discord](https://discord.voskcoin.io)
 
 Feel free to create issues here or contact me through the Voskcoin Discord.
 
-Execute the following command from your smOS CLI.
+Execute the following command from your smOS CLI where [smOSMiner] is the exact Miner name and version and [URLtoNewMiner.tar.gz] is a url to a tar.gz file of a linux binary.
 
 ```
 sudo bash -c "$(curl https://raw.githubusercontent.com/greerso/smOS-unsupported-miners/master/install.sh)" - [smOSMiner] [URLtoNewMiner.tar.gz]

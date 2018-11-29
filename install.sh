@@ -50,15 +50,14 @@ rm -rf ${smOSMinerDIR}
 # Download new miner into smOS miner location
 # =======================================================================================
 mkdir ${smOSMinerDIR}
-curl -fsL ${newMinerURL} | tar xvz -C ${smOSMinerDIR}
-#--strip-components=1
+curl -fsL ${newMinerURL} | tar xvz -C ${smOSMinerDIR} --strip-components=1
 newMinerBin="$(find ${smOSMinerDIR}/ -maxdepth 1 -type f -size +512k -executable -printf "%f\n" -quit)"
 # ---------------------------------------------------------------------------------------
 
 # =======================================================================================
 # Switch out miner and create masquerade symlink
 # =======================================================================================
-if [ "${smOSMinerBin}" -ne "${newMinerBin}" ];
+if [ "${smOSMinerBin}" != "${newMinerBin}" ];
 	then ln -s ${smOSMinerDIR}/${newMinerBin} ${smOSMinerDIR}/${smOSMinerBin};
 fi
 chmod +x ${smOSMinerDIR}/${newMinerBin}

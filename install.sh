@@ -50,8 +50,7 @@ rm -rf ${smOSMinerDIR}
 # Download new miner into smOS miner location
 # =======================================================================================
 mkdir ${smOSMinerDIR}
-curl -fsL ${newMinerURL} | tar xvz -C ${smOSMinerDIR}
-# --strip-components=1
+curl -fsL ${newMinerURL} | tar xvz -C ${smOSMinerDIR} --strip-components=1
 newMinerBin="$(find ${smOSMinerDIR}/ -maxdepth 1 -type f -size +512k -executable -printf "%f\n" -quit)"
 # ---------------------------------------------------------------------------------------
 

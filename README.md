@@ -6,8 +6,6 @@ commands.
 
 I can be found on [The Voskcoin Discord](https://discord.voskcoin.io)
 
-Feel free to create issues here or contact me through the Voskcoin Discord.
-
 Execute the following command from your smOS CLI where [smOSMiner] is the exact Miner name and version and [URLtoNewMiner.tar.gz] is a url to a tar.gz file of a linux binary.
 
 ```

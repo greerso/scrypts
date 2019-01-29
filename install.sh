@@ -35,7 +35,7 @@ smOSMiners=($(awk -F'"' 'NR!=1 && !/md5/ {print $2}'<<< $(curl -sSL ${smOSDownlo
 # =======================================================================================
 smOSMinerDIR=${smOSMinerRoot}${smOSMiner}
 if [ ! -d "${smOSMinerDIR}" ];
-	then curl -fsL ${smOSDownloadURL}${smOSMiner}.tar.gz | tar xvz --strip=1 -C ${smOSMinerRoot};
+	then curl -fsL ${smOSDownloadURL}${smOSMiner}.tar.gz | tar xvz -C ${smOSMinerRoot};
 fi
 smOSMinerBin="$(find ${smOSMinerDIR}/ -maxdepth 1 -type f -size +512k -executable -printf "%f\n" -quit)"
 # ---------------------------------------------------------------------------------------
